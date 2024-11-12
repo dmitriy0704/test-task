@@ -11,7 +11,8 @@ import testtask.repo.DepartmentRepository;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/api/dept", produces = "application/json")
+@RequestMapping(path = "/api/dept")
+@CrossOrigin
 public class Controller {
 
     private DepartmentRepository departmentRepository;
