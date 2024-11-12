@@ -1,15 +1,17 @@
 package testtask.controller;
 
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import testtask.entity.Department;
 import testtask.repo.DepartmentRepository;
 
+import java.util.Optional;
+
 @RestController
-@RequestMapping("/api")  //produces = "application/json"
+@RequestMapping(path = "/api/dept", produces = "application/json")
 public class Controller {
 
     private DepartmentRepository departmentRepository;
@@ -18,11 +20,24 @@ public class Controller {
         this.departmentRepository = departmentRepository;
     }
 
-
-    @GetMapping("/dept")
-    public String getDepartment() {
-        Department department = departmentRepository.findById(1L).get();
-        ;
-        return department.getName();
+    @GetMapping("/{id}")
+    public ResponseEntity<Department> getDepartmentById(@PathVariable("id") Long id) {
+        Optional<Department> optionalDepartment = departmentRepository.findById(id);
+        return optionalDepartment
+                .map(ResponseEntity::ok)
+                .orElseGet(() ->
+                        new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
+
+    @GetMapping(params = "list")
+    public Iterable<Department> getDepartment() {
+        return departmentRepository.findAll();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Department createDepartment(@RequestBody Department department) {
+        return departmentRepository.save(department);
+    }
+
 }
