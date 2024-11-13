@@ -1,8 +1,8 @@
 package testtask.repo;
 
 import org.springframework.data.repository.CrudRepository;
-import testtask.entity.Department;
+import testtask.entity.Employee;
 
 
-public interface EmployeeRepository extends CrudRepository<Department, Long> {
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 }

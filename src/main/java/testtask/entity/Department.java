@@ -18,6 +18,10 @@ public class Department implements Serializable {
     @Column(name = "d_name")
     private String name;
 
+    @Column(name = "d_description")
+    private String description;
+
+
     public Department() {
     }
 }

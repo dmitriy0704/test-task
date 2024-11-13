@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import testtask.entity.Department;
+import testtask.entity.Employee;
 import testtask.repo.DepartmentRepository;
+import testtask.repo.EmployeeRepository;
 
 import java.util.Optional;
 
@@ -14,30 +16,30 @@ import java.util.Optional;
 @CrossOrigin
 public class EmployeeController {
 
-    private DepartmentRepository departmentRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public EmployeeController(DepartmentRepository departmentRepository) {
-        this.departmentRepository = departmentRepository;
+    public EmployeeController(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Department> getDepartmentById(@PathVariable("id") Long id) {
-        Optional<Department> optionalDepartment = departmentRepository.findById(id);
-        return optionalDepartment
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id) {
+        Optional<Employee> optional = employeeRepository.findById(id);
+        return optional
                 .map(ResponseEntity::ok)
                 .orElseGet(() ->
                         new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
 
     @GetMapping(params = "list")
-    public Iterable<Department> getDepartment() {
-        return departmentRepository.findAll();
+    public Iterable<Employee> getEmployee() {
+        return employeeRepository.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Department createDepartment(@RequestBody Department department) {
-        return departmentRepository.save(department);
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeRepository.save(employee);
     }
 
 }

@@ -22,8 +22,8 @@ public class DepartmentController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Department> getDepartmentById(@PathVariable("id") Long id) {
-        Optional<Department> optionalDepartment = departmentRepository.findById(id);
-        return optionalDepartment
+        Optional<Department> optional = departmentRepository.findById(id);
+        return optional
                 .map(ResponseEntity::ok)
                 .orElseGet(() ->
                         new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
