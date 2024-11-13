@@ -2,7 +2,6 @@ package testtask.controller;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import testtask.entity.Department;
@@ -13,11 +12,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/api/dept")
 @CrossOrigin
-public class Controller {
+public class DepartmentController {
 
     private DepartmentRepository departmentRepository;
 
-    public Controller(DepartmentRepository departmentRepository) {
+    public DepartmentController(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
 

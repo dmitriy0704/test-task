@@ -14,7 +14,7 @@ public class Department implements Serializable {
     @Column(name = "d_id")
     private Long id;
 
-    @NonNull
+
     @Column(name = "d_name")
     private String name;
 
