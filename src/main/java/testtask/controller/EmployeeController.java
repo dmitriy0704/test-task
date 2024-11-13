@@ -39,8 +39,6 @@ public class EmployeeController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Employee createEmployee(@RequestBody Employee employee) {
-        System.out.println(employee.toString());
         return employeeRepository.save(employee);
     }
-
 }

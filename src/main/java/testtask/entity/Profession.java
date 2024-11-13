@@ -20,10 +20,6 @@ public class Profession implements Serializable {
     private String name;
     private String description;
 
-//  @OneToOne(mappedBy = "professions")
-//    private String employee;
-//    private String department;
-
     public Profession() {
     }
 }
