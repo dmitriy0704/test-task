@@ -5,3 +5,6 @@
 > url: jdbc:h2:mem:testtask  
 > username: sa  
 > password: password 
+
+[Swagger](http://localhost:8080/swagger-ui/index.html)
+
