@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 
@@ -14,14 +15,14 @@ public class Profession implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "p_id")
+    @Column(name = "id")
     private Long id;
-
-    @Column(name = "p_name")
     private String name;
-
-    @Column(name = "p_description")
     private String description;
+
+//  @OneToOne(mappedBy = "professions")
+//    private String employee;
+//    private String department;
 
     public Profession() {
     }

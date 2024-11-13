@@ -10,12 +10,18 @@ import java.io.Serializable;
 public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     private String fio;
+    private String description;
 
-    @ManyToOne
-    public Profession professions;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "professions_id", referencedColumnName = "id")
+
+    private String profession;
+    private String department;
+
 
     public Employee() {
     }
