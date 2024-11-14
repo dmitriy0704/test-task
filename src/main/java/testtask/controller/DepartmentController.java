@@ -14,7 +14,7 @@ import java.util.Optional;
 @CrossOrigin
 public class DepartmentController {
 
-    private DepartmentRepository departmentRepository;
+    private final DepartmentRepository departmentRepository;
 
     public DepartmentController(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;

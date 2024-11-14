@@ -16,7 +16,6 @@ public class Employee implements Serializable {
     private String description;
     private String profession;
     private String department;
-
     public Employee() {
     }
 }

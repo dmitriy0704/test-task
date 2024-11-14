@@ -13,6 +13,7 @@ public class Department implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String parentDepartment;
     private String description;
 
     public Department() {

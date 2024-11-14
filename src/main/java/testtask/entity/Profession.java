@@ -20,6 +20,8 @@ public class Profession implements Serializable {
     private String name;
     private String description;
 
+
+
     public Profession() {
     }
 }

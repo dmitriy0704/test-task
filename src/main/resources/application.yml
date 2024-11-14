@@ -2,10 +2,10 @@ spring:
   application:
     name: test-task
   datasource:
-    url: jdbc:h2:mem:testtask    #jdbc:postgresql://localhost:5432/testtask
-    username: sa    #postgres
-    password: password    #dv9899
-    driver-class-name: org.h2.Driver  #driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/testtask    # jdbc:h2:mem:testtask
+    username: postgres    # sa
+    password: dv9899     # password
+    driver-class-name: org.postgresql.Driver      # org.h2.Driver
   h2:
     console:
       enabled: true
@@ -13,7 +13,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform=: org.hibernate.dialect.H2Dialect # org.hibernate.dialect.PostgreSQLDialect
+    database-platform=: org.hibernate.dialect.PostgreSQLDialect  # org.hibernate.dialect.H2Dialect
     database: POSTGRESQL
     show-sql: true
   sql:
